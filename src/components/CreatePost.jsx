@@ -1,14 +1,22 @@
 // import { Button } from '@mui/material';
 import { addDoc, collection } from 'firebase/firestore';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from '../firebase';
 import './CreatePost.css';
 
-export const CreatePost = () => {
+
+export const CreatePost = ({isAuth}) => {
   const [title, setTitle] = useState();
   const [postText, setPostText] = useState();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate('/login');
+    }
+   // eslint-disable-next-line
+  }, []);
 
   const createPost = async () => {
     // console.log(title);
@@ -21,7 +29,7 @@ export const CreatePost = () => {
         id: auth.currentUser.uid
       }
     });
-
+    
     navigate('/');
   };
 
