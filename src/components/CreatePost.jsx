@@ -1,3 +1,4 @@
+// import { Button } from '@mui/material';
 import React from 'react';
 import './CreatePost.css';
 
@@ -5,7 +6,7 @@ export const CreatePost = () => {
   return (
     <>
       <div className="createPostPage">
-        <div className="PostContainer">
+        <div className="postContainer">
           <h1>記事を投稿する</h1>
           <div className="inputPost">
             <div>タイトル</div>
@@ -16,6 +17,7 @@ export const CreatePost = () => {
             <textarea placeholder='投稿内容を記入' />
           </div>
           <button className='postButton'>投稿する</button>
+          {/* <Button variant="contained">投稿する</Button> */}
         </div>
       </div>
     </>
